@@ -1,0 +1,9 @@
+numpy>=2.0.0
+opencv-python>=4.10.0
+Pillow>=10.0.0
+pytest>=8.0.0
+
+# Exact paper architecture requires PP-OCRv5 and Piper hi_IN voice model.
+# These are intentionally not auto-installed here because they require explicit approval
+# before large model downloads or OCR dependency installation.
+# Install the exact model assets only after the workspace is ready for them.

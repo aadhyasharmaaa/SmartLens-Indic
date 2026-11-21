@@ -37,7 +37,28 @@ TESSERACT_CMD = Path(
         )
     )
 )
-TESSDATA_DIR = MODELS_DIR / "tesseract" / "tessdata"
+SYSTEM_TESSDATA_DIRS = [
+    Path("/usr/share/tesseract-ocr/5/tessdata"),
+    Path("/usr/share/tesseract-ocr/4.00/tessdata"),
+    Path("/usr/share/tessdata"),
+]
+
+LOCAL_TESSDATA_DIR = MODELS_DIR / "tesseract" / "tessdata"
+
+TESSDATA_DIR = Path(
+    os.environ.get(
+        "SMARTLENS_TESSDATA_DIR",
+        str(
+            next(
+                (
+                    p for p in SYSTEM_TESSDATA_DIRS
+                    if (p / "hin.traineddata").is_file()
+                ),
+                LOCAL_TESSDATA_DIR
+            )
+        )
+    )
+)
 TESSERACT_LANGUAGE = "hin"
 TESSERACT_PAGE_SEGMENTATION_MODE = 6
 

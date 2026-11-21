@@ -6,8 +6,15 @@ __pycache__/
 *.log
 *.sqlite3
 .env
-.venv/
 logs/
 output/
+runtime_data/
+models/tesseract/tessdata/*.traineddata
+models/ppocr/
 .DS_Store
 Thumbs.db
+# Large dataset archives
+*.zip
+
+# Dataset folder
+Data/

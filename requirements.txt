@@ -1,9 +1,9 @@
 numpy>=2.0.0
-opencv-python>=4.10.0
-Pillow>=10.0.0
+opencv-python>=4.10.0,<5
+Pillow>=10.0.0,<13
+pytesseract>=0.3.13,<0.4
+piper-tts>=1.8.0,<2
+streamlit>=1.40.0,<2
+paddlepaddle>=3.0.0,<4
+paddleocr>=3.7.0,<4
 pytest>=8.0.0
-
-# Exact paper architecture requires PP-OCRv5 and Piper hi_IN voice model.
-# These are intentionally not auto-installed here because they require explicit approval
-# before large model downloads or OCR dependency installation.
-# Install the exact model assets only after the workspace is ready for them.

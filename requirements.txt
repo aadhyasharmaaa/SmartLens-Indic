@@ -1,6 +1,5 @@
 numpy>=2.0.0
-opencv-python>=4.10.0,<5
-Pillow>=10.0.0,<13
+opencv-python-headless>=4.10.0,<5Pillow>=10.0.0,<13
 pytesseract>=0.3.13,<0.4
 piper-tts>=1.8.0,<2
 streamlit>=1.40.0,<2

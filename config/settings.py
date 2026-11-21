@@ -1,4 +1,5 @@
 import os
+import shutil
 from pathlib import Path
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
@@ -27,11 +28,13 @@ PP_OCR_DEVANAGARI_RECOGNIZER_MODEL_DIR = (
 PP_OCR_RECOGNIZER_MODEL_DIR = MODELS_DIR / "ppocr" / "rec"
 PIPER_VOICE_PATH = MODELS_DIR / "voices" / "hi_IN-rohan-medium.onnx"
 PIPER_VOICE_DATA_DIR = PIPER_VOICE_PATH.parent
-
 TESSERACT_CMD = Path(
     os.environ.get(
         "SMARTLENS_TESSERACT_CMD",
-        str(Path.home() / "AppData" / "Local" / "Programs" / "Tesseract-OCR" / "tesseract.exe"),
+        shutil.which("tesseract") or str(
+            Path.home() / "AppData" / "Local" / "Programs"
+            / "Tesseract-OCR" / "tesseract.exe"
+        )
     )
 )
 TESSDATA_DIR = MODELS_DIR / "tesseract" / "tessdata"
